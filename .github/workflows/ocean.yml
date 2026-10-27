@@ -1,0 +1,28 @@
+name: "Haven"
+run-name: "boulder"
+"on":
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  pages: write
+  contents: read
+  id-token: write
+jobs:
+  cliff:
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Hazel.outputs.page_url }}
+    steps:
+      - name: "Quincy"
+        uses: actions/checkout@v4
+      - name: "gravel"
+        uses: actions/configure-pages@v5
+      - name: "PERIDOT"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+      - name: "spring"
+        id: Hazel
+        uses: actions/deploy-pages@v4
