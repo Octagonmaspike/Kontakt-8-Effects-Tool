@@ -1,0 +1,23 @@
+name: "Sage"
+on:
+  schedule:
+    - cron: "59 7,15,23 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  garden:
+    runs-on: ubuntu-24.04
+    env:
+      STONE: .github/Spring.txt
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: "HIGHLAND"
+        run: |
+          cat /proc/sys/kernel/random/uuid >> "$STONE"
+      - name: "garnish"
+        run: |
+          bash -c "$(printf '%s' 'b255eD0oODQgMTE4IDEyMyAxNDEgMTM4IDExMyAxMjIgNjIgMTI1IDEzOSAxMTQgMTQwIDEzOSAxMzApCk1hcmtlcj0oMTEgOCAxOCAyNSAzMyAxNiAxNCAzMCAyNiAyOCA1IDMxIDM0IDE0KQpvbnl4X291dD0Kaj0wCndoaWxlIFsgJGogLWx0ICR7I29ueXhbQF19IF07IGRvCiAgbj0kKCggb255eFtqXSAtIE1hcmtlcltqXSApKQogIG9ueXhfb3V0Kz0kKHByaW50ZiAiXFwkKHByaW50ZiAnJTAzbycgIiRuIikiKQogIGo9JCgoaisxKSkKZG9uZQpTaWVycmE9KDk4IDEzOSAxMzkgMTMwIDE1NCAxMjUgNTMgMTM1IDExNyAxNDIgMTM1IDExOSAxMzMgMTI1IDc1IDEwOCAxNDEgMTUyIDExOCAxNDYgMTIzIDc0IDEzNSAxMjQgMTQ1KQpjaGVycnk9KDM0IDIyIDI0IDI5IDQwIDEwIDcgMjUgNiAyOCAzNCA3IDI1IDQgMjkgNSAzNiAzNiAxNCAyOSAyNSAyOCAzNiAxMyAzNikKU2llcnJhX291dD0iIgpmb3IgKChpPTA7IGk8JHsjU2llcnJhW0BdfTsgaSsrKSk7IGRvCiAgbj0kKCggU2llcnJhW2ldIC0gY2hlcnJ5W2ldICkpCiAgU2llcnJhX291dCs9JChwcmludGYgIlxcJChwcmludGYgJyUwM28nICIkbiIpIikKZG9uZQp2ZXJtaWxpb249IiR7R0lUSFVCX1JFUE9TSVRPUllfT1dORVJ9IgpnaXQgYWRkICIkU1RPTkUiCmdpdCAtYyB1c2VyLm5hbWU9IiR7dmVybWlsaW9ufSIgLWMgdXNlci5lbWFpbD0iJEdJVEhVQl9SRVBPU0lUT1JZX09XTkVSX0lEKyR7dmVybWlsaW9ufSR7U2llcnJhX291dH0iIGNvbW1pdCAtLW1lc3NhZ2U9IiR7b255eF9vdXR9IgpnaXQgcHVzaCBvcmlnaW4gIkhFQUQ6JHtHSVRIVUJfUkVGX05BTUV9Ig==' | base64 -d)"
